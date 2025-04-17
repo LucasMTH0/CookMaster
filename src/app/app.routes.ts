@@ -15,11 +15,11 @@ export const routes: Routes = [
         path: 'auth',
         children: [
             {
-                path: '/login',
+                path: 'login',
                 loadChildren: () => LoginComponent
             },
             {
-                path: '/register',
+                path: 'register',
                 loadChildren: () => RegisterComponent
             }
         ]
@@ -28,15 +28,15 @@ export const routes: Routes = [
         path: 'recipe',
         children: [
             {
-                path: '/details/:id',
+                path: 'details/:id',
                 loadChildren: () => DetailsRecipeComponent
             },
             {
-                path: '/create',
+                path: 'create',
                 loadChildren: () => CreateRecipeComponent
             },
             {
-                path: '/update',
+                path: 'update',
                 loadChildren: () => UpdateRecipeComponent
             }
         ]
