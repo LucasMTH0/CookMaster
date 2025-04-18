@@ -1,1 +1,91 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: dark,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --gray-50: #f8f7f7;
+    --gray-100: #f0eeee;
+    --gray-200: #dddada;
+    --gray-300: #bfbaba;
+    --gray-400: #9c9494;
+    --gray-500: #807778;
+    --gray-600: #686162;
+    --gray-700: #554f4f;
+    --gray-800: #484445;
+    --gray-900: #3f3b3b;
+    --gray-950: #343131;
+    --rust-50: #fbf6ea;
+    --rust-100: #f8edeb;
+    --rust-200: #f1ddda;
+    --rust-300: #e5c1bc;
+    --rust-400: #d69d96;
+    --rust-500: #c4756f;
+    --rust-600: #ad5351;
+    --rust-700: #a04747;
+    --rust-800: #79383a;
+    --rust-900: #693236;
+    --rust-950: #391819;
+    --porsche-50: #fcf8f0;
+    --porsche-100: #f7efdd;
+    --porsche-200: #efdcb9;
+    --porsche-300: #e4c28d;
+    --porsche-400: #d8a25e;
+    --porsche-500: #d08a3f;
+    --porsche-600: #c27434;
+    --porsche-700: #a15b2d;
+    --porsche-800: #81492b;
+    --porsche-900: #693d25;
+    --porsche-950: #381e12;
+    --yellow-50: #fdfbed;
+    --yellow-100: #f9f3cc;
+    --yellow-200: #eedf7a;
+    --yellow-300: #ebd45e;
+    --yellow-400: #e6c239;
+    --yellow-500: #dea522;
+    --yellow-600: #c4821b;
+    --yellow-700: #a35f1a;
+    --yellow-800: #854a1b;
+    --yellow-900: #6e3e19;
+    --yellow-950: #3e200a;
+}
+html, body { height: 100%; }
+body { 
+    background-color: var(--gray-950);
+    color: var(--gray-100);
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+@keyframes neonPulse {
+    0% {
+      box-shadow:
+        0 0 5px var(--yellow-400),
+        0 0 10px var(--yellow-400),
+        0 0 20px var(--yellow-400),
+        0 0 40px var(--yellow-400);
+    }
+    100% {
+      box-shadow:
+        0 0 10px var(--yellow-400),
+        0 0 20px var(--yellow-400),
+        0 0 30px var(--yellow-400),
+        0 0 60px var(--yellow-400);
+    }
+  }

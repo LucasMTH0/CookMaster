@@ -33,7 +33,7 @@ export const routes: Routes = [
             },
             {
                 path: 'create',
-                loadChildren: () => CreateRecipeComponent
+                loadComponent: () => CreateRecipeComponent
             },
             {
                 path: 'update',
