@@ -1,1 +1,7 @@
-<p>card works!</p>
+@if(recipe){
+    <div class="card-container">
+        <img src="assets/image/default_recipe_image.png"  alt="Imagem da receita"/>
+        <h1>{{recipe.name}}</h1>
+        <i>{{recipe.category}}</i>
+    </div>
+}

@@ -1,0 +1,12 @@
+.card-container {
+    border: 1px solid var(--yellow-400);
+    border-radius: 7px;
+    padding: .5rem;
+
+    width: 11.875rem;
+    h1 {
+        font-size: 1.05rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}

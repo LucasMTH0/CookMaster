@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div class="container">
+    @if(recipeService.get()){
+        @for(recipe of recipeService.get(); track recipe.id){
+            <app-card [recipe]="recipe"></app-card>
+        }
+    } @else{
+        <h1>Nenhuma receita cadastrada</h1>
+    }
+</div>
