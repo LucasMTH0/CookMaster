@@ -2,11 +2,34 @@
     border: 1px solid var(--yellow-400);
     border-radius: 7px;
     padding: .5rem;
-
+    overflow: hidden;
     width: 11.875rem;
     h1 {
         font-size: 1.05rem;
         font-weight: bold;
         text-transform: uppercase;
+    }
+    img {
+        width: 100%;
+    }
+}
+
+.card-info {
+    padding-inline: 5px;
+    text-align: center;
+    i {
+        font-size: .5625rem;
+        color: var(--gray-400);
+    }
+}
+
+@media (max-width: 800px) {
+    .card-container{
+        width: 7.5rem;
+        height: 11.25rem;
+        padding: 0  0 5px 0;
+    }
+    .card-container h1 {
+        font-size: .75rem;
     }
 }

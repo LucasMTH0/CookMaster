@@ -1,6 +1,6 @@
 <div class="container">
-    @if(recipeService.get()){
-        @for(recipe of recipeService.get(); track recipe.id){
+    @if(recipeService.list()){
+        @for(recipe of recipeService.list(); track recipe.id){
             <app-card [recipe]="recipe"></app-card>
         }
     } @else{

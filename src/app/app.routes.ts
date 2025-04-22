@@ -29,7 +29,7 @@ export const routes: Routes = [
         children: [
             {
                 path: 'details/:id',
-                loadChildren: () => DetailsRecipeComponent
+                loadComponent: () => DetailsRecipeComponent
             },
             {
                 path: 'create',

@@ -1,14 +1,45 @@
 <section>
-    <form>
+    <h1 class="create-recipe-title">Crie uma receita nova</h1>
+    <form [formGroup]="recipeForm">
+
         <label for="name">Nome</label>
-        <input id="name" />
-        <label for="name">Descrição</label>
-        <textarea id="name"></textarea>
-        <label for="name">Nome</label>
-        <input id="name" />
-        <label for="name">Nome</label>
-        <input id="name" />
-        <label for="name">Nome</label>
-        <input id="name" />
+        <input 
+            formControlName="name" 
+            class="form-control" 
+            id="name" 
+        />
+
+        <label for="description">Descrição</label>
+        <textarea 
+            formControlName="description" 
+            class="form-control" 
+            id="description"
+        ></textarea>
+
+        <label for="name">Categoria</label>
+        <input 
+            formControlName="description" 
+            class="form-control" 
+            id="name" 
+        />
+
+        <div formArray="recipeForm.ingredients">
+
+            <div>
+                <label for="name">Ingredientes</label>
+                <button (click)="addField('', ingredientsFields)">adicionar+</button>
+            </div>
+            @for(ingredient of ingredientsFields.controls; track ingredient; let i = $index){
+                <div [formGroup]="ingredient as FormGroup">
+                    <input formControlName="ingredient.get('name')" class="form-control" id="name" />
+                </div>
+            }
+        </div>
+
+        <label for="name">URL do video</label>
+        <input class="form-control" id="name" />
+
+        <button class="form-submit">Criar</button>
+
     </form>
 </section>

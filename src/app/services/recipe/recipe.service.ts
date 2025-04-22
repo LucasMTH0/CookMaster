@@ -8,7 +8,13 @@ export class RecipeService {
   private readonly recipes = recipesTest
   constructor() { }
 
-  get(){
+  list(){
     return this.recipes
   }
+
+  get(id: string){
+    return this.recipes.filter(recipe => recipe.id === id)[0]
+  }
+
+
 }

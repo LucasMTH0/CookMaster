@@ -1,0 +1,24 @@
+.container-recipe{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    img {
+        width: 500px;
+    }
+}
+
+.wrapper-recipe{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+@media(max-width: 800px) {
+    .container-recipe{
+        display: flex;
+        flex-direction: column;
+    }
+    .wrapper-recipe img {
+        width: 100%;
+    }
+}

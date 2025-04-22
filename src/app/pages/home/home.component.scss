@@ -4,5 +4,8 @@
     gap: 2rem;
     justify-content: center;
 
+    @media (max-width: 800) {
+        padding-inline: .3125rem;
+    }
 
 }
