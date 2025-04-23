@@ -21,20 +21,24 @@
 
         </li>
         <li>
-            <mat-icon 
-                aria-hidden="false" 
-                aria-label="Entrar" 
-                fontIcon="person"
-            ></mat-icon>
+            <a routerLink="/auth/login">
+                <mat-icon 
+                    aria-hidden="false" 
+                    aria-label="Entrar" 
+                    fontIcon="person"
+                ></mat-icon>
+            </a>
         </li>
         <li>
-            <mat-icon 
-                aria-hidden="false" 
-                aria-label="Cadastrar" 
-                fontIcon="person_add"
-            ></mat-icon>
+            <a routerLink="/auth/register">
+                <mat-icon 
+                    aria-hidden="false" 
+                    aria-label="Cadastrar" 
+                    fontIcon="person_add"
+                ></mat-icon>
+            </a>
         </li>
-        <li>
+        <li (click)="logoutUser()">
             <mat-icon 
                 aria-hidden="false" 
                 aria-label="Sair" 

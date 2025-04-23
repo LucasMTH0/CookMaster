@@ -16,11 +16,11 @@ export const routes: Routes = [
         children: [
             {
                 path: 'login',
-                loadChildren: () => LoginComponent
+                loadComponent: () => LoginComponent
             },
             {
                 path: 'register',
-                loadChildren: () => RegisterComponent
+                loadComponent: () => RegisterComponent
             }
         ]
     },
@@ -37,7 +37,7 @@ export const routes: Routes = [
             },
             {
                 path: 'update',
-                loadChildren: () => UpdateRecipeComponent
+                loadComponent: () => UpdateRecipeComponent
             }
         ]
     }

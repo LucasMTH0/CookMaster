@@ -29,11 +29,11 @@
                 <label for="name">Ingredientes</label>
                 <button (click)="addField('', ingredientsFields)">adicionar+</button>
             </div>
-            @for(ingredient of ingredientsFields.controls; track ingredient; let i = $index){
+            <!-- @for(ingredient of ingredientsFields.controls; track ingredient; let i = $index){
                 <div [formGroup]="ingredient as FormGroup">
                     <input formControlName="ingredient.get('name')" class="form-control" id="name" />
                 </div>
-            }
+            } -->
         </div>
 
         <label for="name">URL do video</label>
