@@ -1,1 +1,44 @@
-<p>register works!</p>
+<section class="container">
+    <h1 class="form-title">Crie uma nova conta</h1>
+    <form 
+        [formGroup]="formRegister"
+        (submit)="handleRegister()" 
+        class="form-container"
+    >
+
+        <label for="name">Nome</label>
+        <input
+            formControlName="name" 
+            class="form-control" 
+            id="name"
+        />
+
+        <label>E-mail</label>
+        <input 
+            formControlName="email"
+            class="form-control" 
+            id="email"
+        />
+
+        <label for="password">Senha</label>
+        <input
+            formControlName="password"
+            class="form-control"
+            type="password" 
+            id="password"
+        />
+
+        <label for="repeatPassword">Repetir senha</label>
+        <input
+            formControlName="repeatPassword"
+            class="form-control"
+            id="repeatPassword"
+            type="password"
+        />
+
+        <button
+            [disabled]="formRegister.invalid" 
+            class="form-submit"
+        >Cadastrar</button>
+    </form>
+</section>
