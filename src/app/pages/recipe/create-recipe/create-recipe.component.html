@@ -1,6 +1,9 @@
 <section>
     <h1 class="create-recipe-title">Crie uma receita nova</h1>
-    <form [formGroup]="recipeForm">
+    <form
+        (submit)="handleRegisterRecipe()" 
+        [formGroup]="recipeForm"
+    >
 
         <label for="name">Nome</label>
         <input 
@@ -16,30 +19,97 @@
             id="description"
         ></textarea>
 
-        <label for="name">Categoria</label>
+        <label for="category">Categoria</label>
         <input 
-            formControlName="description" 
+            formControlName="category" 
             class="form-control" 
-            id="name" 
+            id="category" 
         />
 
-        <div formArray="recipeForm.ingredients">
-
-            <div>
-                <label for="name">Ingredientes</label>
-                <button (click)="addField('', ingredientsFields)">adicionar+</button>
+        <div formArrayName="ingredients">
+            <div class="array-header-container">
+                <label>Ingredientes</label>
+                <button class="button-add" (click)="addField(ingredients)"> + </button>
             </div>
-            <!-- @for(ingredient of ingredientsFields.controls; track ingredient; let i = $index){
-                <div [formGroup]="ingredient as FormGroup">
-                    <input formControlName="ingredient.get('name')" class="form-control" id="name" />
+
+            @for(ingredient of ingredients.controls; 
+                 track ingredient; 
+                 let i = $index
+            ){
+                <div >
+                    <label class="array-ingredient" for="ingredient-{{i}}">item {{i+1}}</label>
+                    <input 
+                        id="ingredient-{{i}}" 
+                        [formControlName]="i" 
+                        class="form-control" 
+                    />
                 </div>
-            } -->
+            }
         </div>
 
-        <label for="name">URL do video</label>
-        <input class="form-control" id="name" />
+        <div formArrayName="prepare">
+            <div class="array-header-container">
+                <label>Modo de preparo</label>
+                <button class="button-add" (click)="addField(prepare)"> + </button>
+            </div>
 
-        <button class="form-submit">Criar</button>
+            @for(prep of prepare.controls; 
+                 track prep; 
+                 let i = $index
+            ){
+                <div >
+                    <label class="array-ingredient" for="prep-{{i}}">item {{i+1}}</label>
+                    <input 
+                        id="prep-{{i}}" 
+                        [formControlName]="i" 
+                        class="form-control" 
+                    />
+                </div>
+            }
+        </div>
+
+
+        <div>
+            <label for="file" class="custom-label" >
+                Selecionar imagem da receita
+                <mat-icon
+                    class="custom-button" 
+                    aria-hidden="false" 
+                    aria-label="Entrar"
+                    fontIcon="photo_camera"
+                ></mat-icon>
+            </label>
+
+            @if(recipeForm.controls.image.value && recipeForm.controls.image.value.length > 0){
+                <img 
+                    class="preview-image"
+                    alt="prévia da imagem"
+                    [src]="recipeForm.controls.image.value"
+                />
+            }
+
+        </div>
+
+        <input
+            hidden
+            id="file"
+            type="file"
+            accept="image/*" 
+            placeholder="Selecione uma imagem"
+            (change)="handleSelectImage($event)" 
+        />
+
+        <label for="videoTutorial">URL do video</label>
+        <input
+            formControlName="videoTutorial" 
+            class="form-control" 
+            id="videoTutorial" 
+        />
+
+        <button 
+            type="submit"
+            class="form-submit"
+        > Criar </button>
 
     </form>
 </section>

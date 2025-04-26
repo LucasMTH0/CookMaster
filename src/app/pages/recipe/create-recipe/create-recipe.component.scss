@@ -1,1 +1,46 @@
+.create-recipe-title{
+    text-align: center;
+    margin: 10px;
+}
 
+.custom-label {
+    display: flex;
+    flex-direction: column;
+    margin-block: 1rem;
+    gap: 1rem;
+}
+
+.custom-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--yellow-400);
+    border-radius: 7px;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.array-header-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.preview-image{
+    width: 3.75rem;
+    height: 3.75rem;
+}
+
+.array-ingredient{
+    font-size: .8125rem;
+    color: var(--yellow-100);
+}
+
+.button-add {
+    background: transparent;
+    border: 2px solid var(--yellow-400);
+    color: var(--yellow-400);
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    padding: .375rem;
+}

@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { UserSignal } from './signals/user/user';
+import { LocalStorageService } from './services/localStorage/local-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +11,14 @@ import { HeaderComponent } from './components/header/header.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'CookMaster';
+  protected userSignal = inject(UserSignal)
+  private localStorageService = inject(LocalStorageService)
+
+  constructor(){
+    if(this.localStorageService.getUser() !== null){
+      this.userSignal.set(this.localStorageService.getUser())
+    } else {
+      this.userSignal.clear()
+    }
+  }
 }

@@ -8,42 +8,45 @@
                     fontIcon="home"
                 ></mat-icon>
             </a>
-            <!-- <a>Início</a> -->
         </li>
-        <li>
-            <a routerLink="/recipe/create">
-                <mat-icon
-                    aria-hidden="false" 
-                    aria-label="Entrar" 
-                    fontIcon="note_add"
-                ></mat-icon>
-            </a>
-
-        </li>
-        <li>
-            <a routerLink="/auth/login">
+        @if(userSignal.get() !== null){
+            <li>
+                <a routerLink="/recipe/create">
+                    <mat-icon
+                        aria-hidden="false" 
+                        aria-label="Entrar" 
+                        fontIcon="note_add"
+                    ></mat-icon>
+                </a>
+            </li>
+    
+            <li (click)="logoutUser()">
                 <mat-icon 
                     aria-hidden="false" 
-                    aria-label="Entrar" 
-                    fontIcon="person"
+                    aria-label="Sair" 
+                    fontIcon="logout"
                 ></mat-icon>
-            </a>
-        </li>
-        <li>
-            <a routerLink="/auth/register">
-                <mat-icon 
-                    aria-hidden="false" 
-                    aria-label="Cadastrar" 
-                    fontIcon="person_add"
-                ></mat-icon>
-            </a>
-        </li>
-        <li (click)="logoutUser()">
-            <mat-icon 
-                aria-hidden="false" 
-                aria-label="Sair" 
-                fontIcon="logout"
-            ></mat-icon>
-        </li>
+            </li>
+        }
+        @else {
+            <li>
+                <a routerLink="/auth/login">
+                    <mat-icon 
+                        aria-hidden="false" 
+                        aria-label="Entrar" 
+                        fontIcon="person"
+                    ></mat-icon>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/auth/register">
+                    <mat-icon 
+                        aria-hidden="false" 
+                        aria-label="Cadastrar" 
+                        fontIcon="person_add"
+                    ></mat-icon>
+                </a>
+            </li>
+        }
     </ul>
 </mat-sidenav-container>

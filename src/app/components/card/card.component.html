@@ -1,6 +1,6 @@
 @if(recipe){
     <div class="card-container" (click)="navigateToDetails()">
-        <img src="assets/image/default_recipe_image.png"  alt="Imagem da receita"/>
+        <img [src]="recipe.image ? recipe.image : 'assets/image/default_recipe_image.png'"  alt="Imagem da receita"/>
         <div class="card-info">
             <h1>{{recipe.name}}</h1>
             <i>{{recipe.category}}</i>
