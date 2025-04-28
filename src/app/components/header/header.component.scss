@@ -54,8 +54,14 @@ mat-icon{
         height: 3.8rem;
         ul {
             display: flex;
+            height: 100%;
             gap: 2rem;
             justify-content: space-around;
+            align-items: center;
+            overflow-y: hidden;
+        }
+        li {
+            margin: 0;
         }
     }
 
