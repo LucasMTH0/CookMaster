@@ -75,9 +75,8 @@ export class CreateRecipeComponent {
 
   handleRegisterRecipe(){
     this.recipeForm.controls.createdAt.setValue(String(new Date()))
-    console.log("foi")
-    // this.recipeService.create(this.recipeForm.value).subscribe((result) => {
-    //   console.log("result: ", result)
-    // })
+    this.recipeService.create(this.recipeForm.value).subscribe((result) => {
+      console.log("result: ", result)
+    })
   }
 }
