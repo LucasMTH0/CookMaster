@@ -36,6 +36,9 @@
 }
 
 .button-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: transparent;
     border: 2px solid var(--yellow-400);
     color: var(--yellow-400);

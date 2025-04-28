@@ -2,10 +2,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: center;
+    padding: 1rem;
 
     @media (max-width: 800) {
-        padding-inline: .3125rem;
+        padding: .75rem;
     }
 
 }

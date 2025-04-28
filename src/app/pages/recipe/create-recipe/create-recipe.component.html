@@ -1,7 +1,7 @@
 <section>
     <h1 class="create-recipe-title">Crie uma receita nova</h1>
     <form
-        (submit)="handleRegisterRecipe()" 
+        (ngSubmit)="handleRegisterRecipe()" 
         [formGroup]="recipeForm"
     >
 
@@ -29,7 +29,7 @@
         <div formArrayName="ingredients">
             <div class="array-header-container">
                 <label>Ingredientes</label>
-                <button class="button-add" (click)="addField(ingredients)"> + </button>
+                <i class="button-add" (click)="addField(ingredients)"> + </i>
             </div>
 
             @for(ingredient of ingredients.controls; 
@@ -50,7 +50,7 @@
         <div formArrayName="prepare">
             <div class="array-header-container">
                 <label>Modo de preparo</label>
-                <button class="button-add" (click)="addField(prepare)"> + </button>
+                <i class="button-add" (click)="addField(prepare)"> + </i>
             </div>
 
             @for(prep of prepare.controls; 

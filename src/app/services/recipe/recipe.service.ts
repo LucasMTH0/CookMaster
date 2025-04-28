@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { recipesTest } from '../../utils/recipes';
 import { HttpClient } from '@angular/common/http';
 import { Recipe } from '../../interfaces/recipe';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class RecipeService {
     return this.http.get(this.API+'/recipe')
   }
 
-  get(id: string){
-    return this.recipes.filter(recipe => recipe.id === id)[0]
+  get(id: string): Observable<Recipe>{
+    return this.http.get<Recipe>(this.API+'/recipe/'+id)
   }
 
   create(recipe: any){

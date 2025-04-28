@@ -13,6 +13,8 @@ export class CardComponent {
   @Input() recipe: Recipe | undefined
 
   navigateToDetails(){
-    this.router.navigateByUrl(`/recipe/details/${this.recipe?.id}`)
+    if(this.recipe){
+      this.router.navigateByUrl(`/recipe/details/${this.recipe['_id']}`)
+    }
   }
 }

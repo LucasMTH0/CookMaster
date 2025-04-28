@@ -1,7 +1,7 @@
-@if(recipe){
+@if(recipe$ | async; as recipe){
     <section class="container-recipe">
         <img 
-            src="assets/image/default_recipe_image.png" 
+            [src]="recipe.image ? recipe.image : 'assets/image/default_recipe_image.png'" 
             alt="Imagem da receita"
         />
         <div class="wrapper-recipe">
@@ -24,10 +24,10 @@
                 }
             </div>
 
-            <iframe 
+            <!-- <iframe 
                 [src]="safeUrl"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            ></iframe>
+            ></iframe> -->
         </div>
 
     </section>
