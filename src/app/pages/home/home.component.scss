@@ -9,3 +9,28 @@
     }
 
 }
+
+.header-user{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--yellow-400);
+    outline: none;
+    color: var(--yellow-400);
+    padding: 10px;
+    border-radius: .4375rem;
+}
+
+.welcome-title{
+    font-size: 1.0625rem
+}
+
+.name-user{
+    color: var(--yellow-400);
+    font-weight: bold;
+}

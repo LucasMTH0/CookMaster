@@ -1,4 +1,4 @@
-<section>
+<section class="container">
     <h1 class="create-recipe-title">Crie uma receita nova</h1>
     <form
         (ngSubmit)="handleRegisterRecipe()" 
@@ -59,11 +59,11 @@
             ){
                 <div >
                     <label class="array-ingredient" for="prep-{{i}}">item {{i+1}}</label>
-                    <input 
+                    <textarea 
                         id="prep-{{i}}" 
                         [formControlName]="i" 
                         class="form-control" 
-                    />
+                    ></textarea>
                 </div>
             }
         </div>
@@ -106,7 +106,8 @@
             id="videoTutorial" 
         />
 
-        <button 
+        <button
+            [disabled]="recipeForm.invalid" 
             type="submit"
             class="form-submit"
         > Criar </button>

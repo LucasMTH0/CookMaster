@@ -81,11 +81,12 @@ body {
 .form-control{
   width: 100%;
   padding: 10px;
-  border: 1px solid var(--yellow-400);
+  border: 2px solid var(--yellow-400);
   color: var(--yellow-400);
   background: var(--gray-900);
   border-radius: 7px;
   margin-block: 10px;
+  outline: none;
 }
 
 .form-title {
@@ -109,8 +110,15 @@ label {
   font-weight: bold;
   border: 1px solid var(--yellow-400);
   border-radius: 7px;
-  padding: 10px;
+  padding: 17px 10px;
   margin-block: 10px;
+  font-size: 1.1875rem;
+  &:disabled{
+    border: 1px solid (--yellow-700) !important;
+    background: var(--yellow-700);
+    cursor: not-allowed;
+    color: white;
+  }
 }
 
 @media (max-width: 800px) {
