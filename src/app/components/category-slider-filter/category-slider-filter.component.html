@@ -1,0 +1,14 @@
+<div class="category-container">
+    <span
+      [ngClass]="{'category-active':categoryOptionFilterSelected === '' }"
+      class="category-button"
+    >Todos</span>
+
+    @for(category of (category$ | async) ?? []; track category){
+        <span
+          [ngClass]="{'category-active': categoryOptionFilterSelected === category.name}"
+          (click)="handleChangeCategoryFilter(category.name)"
+          class="category-button"
+        >{{ category.name }}</span>
+    }
+</div>

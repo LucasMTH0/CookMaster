@@ -1,0 +1,45 @@
+.category-container {
+    
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+    gap: 1rem;
+    padding-block: 0.5rem;
+}
+  
+.category-container::-webkit-scrollbar {
+    width: 8px;
+}
+  
+.category-container::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border-radius: 4px;
+}
+  
+.category-container::-webkit-scrollbar-thumb {
+    background-color: var(--gray-900);
+    border-radius: 4px;
+}
+  
+.category-container::-webkit-scrollbar-thumb:hover {
+    background-color: var(--gray-700);
+}
+  
+.category-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 8px;
+    border: 1px solid var(--yellow-400);
+    border-radius: 25px;
+    color: var(--yellow-400);
+    width: auto;
+    cursor: pointer;
+}
+  
+.category-active {
+    background: var(--yellow-400);
+    color: var(--gray-900);
+}

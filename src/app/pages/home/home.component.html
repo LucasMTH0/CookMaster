@@ -1,36 +1,32 @@
 <div class="container">
-    @if(user){
-        <div class="header-user">
-            <h1 class="welcome-title">Olá
-                <span class="name-user">{{ user.name }}</span>
-            </h1>
-            @if(isSearchInputOpen){
-                <div class="input-container">
-                    <input
-                        (keyup.enter)="handleSearchRecipe($event)"
-                        class="search-input"
-                        placeholder="Buscar por..."
-                    />
-                </div>
-            }
-            <mat-icon
-                (click)="handleToggleSearchInput()"
-                aria-hidden="false"
-                aria-label="Entrar"
-                fontIcon="search"
-            ></mat-icon>
-        </div>
-
-    }
-
-    <div class="category-container">
-        <span class="category-button">Todos</span>
-        @for(category of (category$ | async) ?? []; track category){
-            <span class="category-button">{{ category.name}}</span>
-        }
+  @if(user){
+  <div class="header-user">
+    <h1 class="welcome-title">
+      Olá
+      <span class="name-user">{{ user.name }}</span>
+    </h1>
+    @if(isSearchInputOpen){
+    <div class="input-container">
+      <input
+        (keyup.enter)="handleSearchRecipe($event)"
+        class="search-input"
+        placeholder="Buscar por..."
+      />
     </div>
-
-    @for(recipe of (recipes$ | async) ?? []; track recipe.id){
-        <app-card key="recipe.id" [recipe]="recipe"></app-card>
     }
+    <mat-icon
+      (click)="handleToggleSearchInput()"
+      aria-hidden="false"
+      aria-label="Entrar"
+      fontIcon="search"
+    ></mat-icon>
+  </div>
+
+  }
+
+  <app-category-slider-filter></app-category-slider-filter>
+
+  @for(recipe of (recipes$ | async) ?? []; track recipe.id){
+    <app-card key="recipe.id" [recipe]="recipe"></app-card>
+  }
 </div>
