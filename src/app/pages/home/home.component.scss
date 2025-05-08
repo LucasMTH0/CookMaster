@@ -26,6 +26,27 @@
     border-radius: .4375rem;
 }
 
+.category-container {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+}
+
+.category-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 6px;
+    border: 1px solid var(--yellow-400);
+    border-radius: 25px;
+    color: var(--yellow-400);
+    height: 20px;
+    width: auto;
+
+}
+
 .welcome-title{
     font-size: 1.0625rem
 }
@@ -34,3 +55,11 @@
     color: var(--yellow-400);
     font-weight: bold;
 }
+
+@media (max-width: 800px) {
+    .input-container{
+        clear: both;
+    }
+}
+
+

@@ -20,6 +20,19 @@ html {
     margin: 0;
     box-sizing: border-box;
 }
+::-webkit-scrollbar-track {
+  background: var(--gray-900); /* cor de fundo da área da scrollbar */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gray-900); /* cor da barra de rolagem */
+  border-radius: 10px;
+  border: 3px solid var(--yellow-400); /* borda ao redor da barra */
+  
+  &:hover {
+    background: #555; /* cor quando hover */
+  }
+}
 :root {
     --gray-50: #f8f7f7;
     --gray-100: #f0eeee;
