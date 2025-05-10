@@ -5,7 +5,7 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 import { UserSignal } from '../../signals/user/user';
 import { MatIconModule } from '@angular/material/icon';
 import { CategoryService } from '../../services/category/category.service';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { IndexedDBService } from '../../services/indexedDB/indexed-db.service';
 import { CategorySliderFilterComponent } from '../../components/category-slider-filter/category-slider-filter.component';
 
@@ -25,18 +25,63 @@ export class HomeComponent {
   isSearchInputOpen: boolean = false;
   categoryOptionFilterSelected: string = '';
   category$ = this.categoryService.list();
-  recipes$ = this.recipeService.list().pipe(
-    tap(async (recipes) => {
-      try {
-        const saveRecipesOffline = await this.offlineDB.insertRecipe(recipes);
-        if (saveRecipesOffline) {
-          console.log('fooi! ', saveRecipesOffline);
+
+  recipes$: any;
+  recipesList: any;
+
+  // this.recipeService.list().pipe(
+  //   tap(async (recipes) => {
+  //     try {
+  //       const offlineRecipesList: any = await this.offlineDB.getRecipes();
+  //       console.log("recipes offline: ", offlineRecipesList)
+  //       if(!offlineRecipesList || offlineRecipesList.length == 0) {
+  //         console.log("recipes offline: ", offlineRecipesList)
+  //         const saveRecipesOffline = await this.offlineDB.insertRecipe(recipes);
+  //         if (saveRecipesOffline) {
+  //           console.log('fooi! ', saveRecipesOffline);
+  //         }
+          
+  //       }
+  //     } catch (error: any) {
+  //       console.log('deu erro: ', error);
+  //     }
+  //   })
+  // );
+
+
+  constructor(){
+    this.getRecipes()
+
+    
+  }
+
+  async getRecipes(){
+    if(navigator.onLine) {
+      this.recipeService.list().subscribe(
+        async (recipes) => {
+          this.recipesList = recipes;
+          await this.saveOfflineRecipes(recipes);
         }
-      } catch (error: any) {
-        console.log('deu erro: ', error);
-      }
-    })
-  );
+      )
+    } else {
+      this.recipesList = await this.getOfflineRecipes() 
+    }
+  }
+
+  async saveOfflineRecipes(recipes: any){
+    const offlineRecipesList: any = await this.getOfflineRecipes()
+    if(
+      offlineRecipesList.length == 0 || 
+      offlineRecipesList < recipes.length
+    ) {
+      await this.offlineDB.insertRecipe(recipes);
+    }
+  }
+
+  async getOfflineRecipes(){
+    return await this.offlineDB.getRecipes();
+  }
+
 
   handleToggleSearchInput() {
     this.isSearchInputOpen = !this.isSearchInputOpen;

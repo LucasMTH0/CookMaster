@@ -13,8 +13,8 @@ export class IndexedDBService {
       requestDB.onupgradeneeded = (event: any) => {
         const database = event.target.result;
         database.createObjectStore('user')
-        database.createObjectStore('recipes', { keyPath: 'id' })
-        database.createObjectStore('favorites', { keyPath: 'id' })
+        database.createObjectStore('recipes', { autoIncrement: true })
+        database.createObjectStore('favorites', { autoIncrement: true })
       }
 
       return new Promise((resolve, reject) => {
@@ -38,15 +38,36 @@ export class IndexedDBService {
       console.log("database: ", DB)
       const transaction = DB.transaction(['recipes'], 'readwrite');
       const store = transaction.objectStore('recipes');
-      const request = store.put(JSON.stringify(recipes))
-      request.onsuccess = () => {
-        console.log("fooi")
-      }
-      request.onerror = (event: any) => {
-        reject(`Erro ao cadastrar: ${event.target.error}`)
-      }
+      const results: number[] = [];
+      let completed = 0;
+      let hasError: boolean = false
+      recipes.forEach((recipe: any) => {
+        if (hasError){
+          return
+        }
+        store.add(recipe)
+        store.onsuccess = () => {
+          completed+=1;
+          results.push(store.result);
+          if(completed === recipe){
+            resolve(results)
+          }
+        }
+        store.onerror = () => {
+          hasError = true
+        }
+      })
     })
   }
 
-
+  public async getRecipes(){
+    return new Promise(async (resolve, reject) => {
+      const database: any = await this.initializeDatabase();
+      const transaction = database.transaction(['recipes'],   'readwrite');
+      const store = transaction.objectStore('recipes');
+      const request = store.getAll();
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    })
+  }
 }
