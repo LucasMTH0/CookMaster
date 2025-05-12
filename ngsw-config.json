@@ -8,8 +8,8 @@
       "resources": {
         "files": [
           "/favicon.ico",
-          "/index.csr.html",
           "/index.html",
+          "/index.csr.html",
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
@@ -18,13 +18,29 @@
     },
     {
       "name": "assets",
-      "installMode": "lazy",
-      "updateMode": "prefetch",
+      "installMode": "prefetch",
       "resources": {
         "files": [
-          "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+          "/**/*.svg",
+          "/**/*.cur",
+          "/**/*.jpg",
+          "/**/*.jpeg",
+          "/**/*.png",
+          "/**/*.apng",
+          "/**/*.webp",
+          "/**/*.avif",
+          "/**/*.gif",
+          "/**/*.otf",
+          "/**/*.ttf",
+          "/**/*.woff",
+          "/**/*.woff2"
         ]
       }
     }
+  ],
+  "navigationUrls": [
+    "/**",
+    "!/**/*.*",
+    "!/api/**"
   ]
 }

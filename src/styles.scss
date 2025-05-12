@@ -66,16 +66,42 @@ html {
   --yellow-800: #854a1b;
   --yellow-900: #6e3e19;
   --yellow-950: #3e200a;
+  --sazerac-50: #fef8ee;
+  --sazerac-100: #fef3e2; 
+  --sazerac-200: #fbdaad;
+  --sazerac-300: #f8bf79;
+  --sazerac-400: #f59942;
+  --sazerac-500: #f17c1e;
+  --sazerac-600: #e36113;
+  --sazerac-700: #bc4a12;
+  --sazerac-800: #953a17;
+  --sazerac-900: #783216;
+  --sazerac-950: #411709;
+  --saffron-50: #fdfbe9;
+  --saffron-100: #fcf6c5;
+  --saffron-200: #faeb8e;
+  --saffron-300: #f7d94d;
+  --saffron-400: #f3c623;
+  --saffron-500: #e3ac0f;
+  --saffron-600: #c4850a;
+  --saffron-700: #9c5f0c;
+  --saffron-800: #814b12;
+  --saffron-900: #6e3e15;
+  --saffron-950: #401f08;
+
+
+
 }
 html,
 body {
   height: 100%;
 }
 body {
-  background-color: var(--gray-950);
-  color: var(--gray-100);
+  background-color: var(--sazerac-50);
+  color: var(--gray-950);
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1em;
 }
 
 .form-container {
