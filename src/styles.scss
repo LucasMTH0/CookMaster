@@ -1,6 +1,6 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use "@angular/material" as mat;
+@import "../node_modules/animate.css/animate.min.css";
+@import "./assets/reset.css";
 
 html {
   @include mat.theme(
@@ -88,6 +88,50 @@ html {
   --saffron-800: #814b12;
   --saffron-900: #6e3e15;
   --saffron-950: #401f08;
+  --spray-50: #ecfdff;
+  --spray-100: #cef9ff;
+  --spray-200: #a3f0fe;
+  --spray-300: #6fe6fc;
+  --spray-400: #1ecef2;
+  --spray-500: #02b1d8;
+  --spray-600: #058cb5;
+  --spray-700: #0c7092;
+  --spray-800: #135b77;
+  --spray-900: #154c64;
+  --spray-950: #073145;
+  --st-tropaz-50: #f3f6fc;
+  --st-tropaz-100: #e6eef8;
+  --st-tropaz-200: #c8dbef;
+  --st-tropaz-300: #98bce1;
+  --st-tropaz-400: #6098d0;
+  --st-tropaz-500: #3c7cbb;
+  --st-tropaz-600: #2b619e;
+  --st-tropaz-700: #27548a;
+  --st-tropaz-800: #21436b;
+  --st-tropaz-900: #213a59;
+  --st-tropaz-950: #16253b;
+  --thunderbird-50: #fff0f0;
+  --thunderbird-100: #ffdede;
+  --thunderbird-200: #ffc2c2;
+  --thunderbird-300: #ff9898;
+  --thunderbird-400: #ff5c5c;
+  --thunderbird-500: #ff2a2a;
+  --thunderbird-600: #f80a0a;
+  --thunderbird-700: #cb0404;
+  --thunderbird-800: #ac0808;
+  --thunderbird-900: #8e0e0e;
+  --thunderbird-950: #4e0101;
+  --eucalyptus-50: #f0f9f5;
+  --eucalyptus-100: #daf1e5;
+  --eucalyptus-200: #b7e3ce;
+  --eucalyptus-300: #88cdb1;
+  --eucalyptus-400: #56b18f;
+  --eucalyptus-500: #328e6e;
+  --eucalyptus-600: #24775c;
+  --eucalyptus-700: #1d5f4b;
+  --eucalyptus-800: #194c3d;
+  --eucalyptus-900: #153f33;
+  --eucalyptus-950: #0b231d;
 
 
 
@@ -98,21 +142,20 @@ body {
 }
 body {
   background-color: var(--sazerac-50);
-  color: var(--gray-950);
+  color: var(--saffron-950);
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 1em;
 }
 
-.form-container {
-}
+
 
 .form-control {
   width: 100%;
   padding: 10px;
-  border: 2px solid var(--yellow-400);
-  color: var(--yellow-400);
-  background: var(--gray-900);
+  border: 2px solid var(--gray-900);
+  color: var(--gray-950);
+  background: var(--gray-100);
   border-radius: 7px;
   margin-block: 10px;
   outline: none;
@@ -126,26 +169,29 @@ body {
 }
 
 label {
-  color: var(--yellow-400);
+  display: block;
+  color: var(--gray-700);
   font-weight: bold;
   text-align: left;
+  font-size: 1.375rem;
 }
 
 .form-submit {
-  width: 100%;
-  background: var(--yellow-400);
-  color: var(--gray-950);
+  width: 12.5rem;
+  background: var(--eucalyptus-400);
+  color: var(--gray-50);
   font-weight: bold;
-  border: 1px solid var(--yellow-400);
+  border: 1px solid transparent;
   border-radius: 7px;
   padding: 17px 10px;
   margin-block: 10px;
   font-size: 1.1875rem;
+  cursor: pointer;
+  transition: 2s ease-in-out;
   &:disabled {
-    border: 1px solid (--yellow-700) !important;
-    background: var(--yellow-700);
+    background: var(--thunderbird-950);
     cursor: not-allowed;
-    color: white;
+    color: var(--gray-400);
   }
 }
 

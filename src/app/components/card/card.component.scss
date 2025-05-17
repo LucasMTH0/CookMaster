@@ -1,14 +1,15 @@
 .card-container {
-    border: 1px solid var(--yellow-400);
-    border-radius: 7px;
-    padding: .5rem;
-    overflow: hidden;
     width: 11.875rem;
     height: 15rem;
+
+    border: 1px solid transparent;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px #ddd;
+    overflow: hidden;
     cursor: pointer;
     h1 {
-        font-size: 1.05rem;
         font-weight: bold;
+        font-size: 1.05rem;
         text-transform: uppercase;
     }
     img {
@@ -18,10 +19,10 @@
 }
 
 .card-info {
-    padding-inline: 5px;
+    padding: 5px;
     text-align: center;
     i {
-        font-size: .5625rem;
+        font-size: .75rem;
         color: var(--gray-400);
     }
 }

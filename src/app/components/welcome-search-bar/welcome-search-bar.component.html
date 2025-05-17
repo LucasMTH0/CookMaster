@@ -1,17 +1,20 @@
 <div class="header-user">
-    <h1 class="welcome-title">
-      Olá <span class="name-user">{{ user.name }}</span>
+    <h1 class="welcome-title ">
+      Olá <span class="name-user ">{{ user.name }}</span>
     </h1>
-    @if(isSearchInputOpen){
-    <div class="input-container">
-      <input
-        (keyup.enter)="handleSearchRecipe($event)"
-        class="search-input"
-        placeholder="Buscar por..."
-      />
-    </div>
+    @if (isSearchInputOpen) {
+      <div
+        [ngClass]="isSearchInputOpen ? 'enabled' : 'disabled'"
+        class="input-container">
+        <input
+          (keyup.enter)="handleSearchRecipe($event)"
+          id="search-input"
+          placeholder="Buscar por..."
+        />
+      </div>
     }
     <mat-icon
+      id="search-input-button"
       (click)="handleToggleSearchInput()"
       aria-hidden="false"
       aria-label="Entrar"

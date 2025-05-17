@@ -5,20 +5,19 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 import { UserSignal } from '../../signals/user/user';
 import { MatIconModule } from '@angular/material/icon';
 import { CategoryService } from '../../services/category/category.service';
-import { Observable, tap } from 'rxjs';
 import { IndexedDBService } from '../../services/indexedDB/indexed-db.service';
 import { CategorySliderFilterComponent } from '../../components/category-slider-filter/category-slider-filter.component';
 import { WelcomeSearchBarComponent } from '../../components/welcome-search-bar/welcome-search-bar.component';
+import { LoadingService } from '../../services/loading/loading.service';
 
 @Component({
   selector: 'app-home',
   imports: [
-    AsyncPipe, 
     CommonModule,
     MatIconModule, 
-    CardComponent, 
-    WelcomeSearchBarComponent, 
-    CategorySliderFilterComponent
+    CardComponent,
+    CategorySliderFilterComponent, 
+    WelcomeSearchBarComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -26,6 +25,7 @@ import { WelcomeSearchBarComponent } from '../../components/welcome-search-bar/w
 export class HomeComponent {
   protected recipeService = inject(RecipeService);
   protected categoryService = inject(CategoryService);
+  private loadingService = inject(LoadingService);
   protected userSignal = inject(UserSignal);
   private offlineDB = inject(IndexedDBService);
   protected user = this.userSignal.get();
@@ -41,10 +41,12 @@ export class HomeComponent {
 
   async getRecipes(){
     if(navigator.onLine) {
+      this.loadingService.open()
       this.recipeService.list().subscribe(
         async (recipes) => {
           this.recipesList = recipes;
           await this.saveOfflineRecipes(recipes);
+          this.loadingService.close()
         }
       )
     } else {

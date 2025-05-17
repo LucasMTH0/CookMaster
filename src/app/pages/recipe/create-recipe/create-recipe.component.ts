@@ -9,10 +9,12 @@ import {
 import { UserSignal } from '../../../signals/user/user';
 import { MatIconModule } from '@angular/material/icon';
 import { RecipeService } from '../../../services/recipe/recipe.service';
+import { CategoryService } from '../../../services/category/category.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-recipe',
-  imports: [ReactiveFormsModule, MatIconModule],
+  imports: [ReactiveFormsModule, MatIconModule, AsyncPipe],
   templateUrl: './create-recipe.component.html',
   styleUrl: './create-recipe.component.scss'
 })
@@ -20,7 +22,9 @@ export class CreateRecipeComponent {
   private formBuilder = inject(FormBuilder)
   private userSignal = inject(UserSignal)
   private recipeService = inject(RecipeService)
-
+  protected categoryService = inject(CategoryService);
+  category$ = this.categoryService.list();
+  
   protected recipeForm = this.formBuilder.group({
     name: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),

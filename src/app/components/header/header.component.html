@@ -2,7 +2,8 @@
     <ul>
         <li>
             <a routerLink="/">
-                <mat-icon 
+                <mat-icon
+                    class="header-icon" 
                     aria-hidden="false" 
                     aria-label="Início" 
                     fontIcon="home"
@@ -13,6 +14,7 @@
             <li>
                 <a routerLink="/recipe/create">
                     <mat-icon
+                        class="header-icon" 
                         aria-hidden="false" 
                         aria-label="Entrar" 
                         fontIcon="note_add"
@@ -23,6 +25,7 @@
             <li>
                 <a routerLink="/recipe/create">
                     <mat-icon
+                        class="header-icon" 
                         aria-hidden="false" 
                         aria-label="Entrar" 
                         fontIcon="favorite"
@@ -31,7 +34,8 @@
             </li>
     
             <li (click)="logoutUser()">
-                <mat-icon 
+                <mat-icon
+                    class="header-icon"  
                     aria-hidden="false" 
                     aria-label="Sair" 
                     fontIcon="logout"
@@ -41,7 +45,8 @@
         @else {
             <li>
                 <a routerLink="/auth/login">
-                    <mat-icon 
+                    <mat-icon
+                        class="header-icon"  
                         aria-hidden="false" 
                         aria-label="Entrar" 
                         fontIcon="person"
@@ -50,7 +55,8 @@
             </li>
             <li>
                 <a routerLink="/auth/register">
-                    <mat-icon 
+                    <mat-icon
+                        class="header-icon" 
                         aria-hidden="false" 
                         aria-label="Cadastrar" 
                         fontIcon="person_add"

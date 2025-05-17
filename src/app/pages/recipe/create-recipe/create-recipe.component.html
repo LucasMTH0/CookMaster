@@ -4,7 +4,6 @@
         (ngSubmit)="handleRegisterRecipe()" 
         [formGroup]="recipeForm"
     >
-
         <label for="name">Nome</label>
         <input 
             formControlName="name" 
@@ -20,24 +19,29 @@
         ></textarea>
 
         <label for="category">Categoria</label>
-        <input 
+        <select 
             formControlName="category" 
             class="form-control" 
-            id="category" 
-        />
+            id="category"
+        >
+            @for(category of (category$ | async) ?? []; track category.id){
+                <option>{{ category.name }}</option>
+            }
+        </select>
 
-        <div formArrayName="ingredients">
+        <div 
+            class="form-array-container" formArrayName="ingredients"
+        >
             <div class="array-header-container">
                 <label>Ingredientes</label>
-                <i class="button-add" (click)="addField(ingredients)"> + </i>
             </div>
-
-            @for(ingredient of ingredients.controls; 
-                 track ingredient; 
-                 let i = $index
-            ){
-                <div >
-                    <label class="array-ingredient" for="ingredient-{{i}}">item {{i+1}}</label>
+    
+            @for(ingredient of ingredients.controls;track ingredient;let i = $index){
+                <div>
+                    <label 
+                        class="array-ingredient" 
+                        for="ingredient-{{i}}"
+                    > Ingrediente {{i+1}} </label>
                     <input 
                         id="ingredient-{{i}}" 
                         [formControlName]="i" 
@@ -45,20 +49,28 @@
                     />
                 </div>
             }
-        </div>
+            <button 
+                type="button"
+                class="button-add" 
+                (click)="addField(ingredients)"
+            > Novo item </button>
 
-        <div formArrayName="prepare">
+        </div>
+    
+        <div
+            class="form-array-container"
+            formArrayName="prepare"
+        >
             <div class="array-header-container">
                 <label>Modo de preparo</label>
-                <i class="button-add" (click)="addField(prepare)"> + </i>
             </div>
-
-            @for(prep of prepare.controls; 
-                 track prep; 
-                 let i = $index
-            ){
-                <div >
-                    <label class="array-ingredient" for="prep-{{i}}">item {{i+1}}</label>
+    
+            @for(prep of prepare.controls; track prep; let i = $index){
+                <div>
+                    <label 
+                        class="array-ingredient" 
+                        for="prep-{{i}}"
+                    > Passo {{i+1}} </label>
                     <textarea 
                         id="prep-{{i}}" 
                         [formControlName]="i" 
@@ -66,12 +78,16 @@
                     ></textarea>
                 </div>
             }
+            <button 
+                type="button"
+                class="button-add" 
+                (click)="addField(prepare)"
+            > Novo item </button>
         </div>
-
-
-        <div>
+        
+        <div class="horizontal-cols">
             <label for="file" class="custom-label" >
-                Selecionar imagem da receita
+                Selecionar imagem
                 <mat-icon
                     class="custom-button" 
                     aria-hidden="false" 
@@ -98,9 +114,10 @@
             placeholder="Selecione uma imagem"
             (change)="handleSelectImage($event)" 
         />
-
+        
         <label for="videoTutorial">URL do video</label>
         <input
+            type="url"
             formControlName="videoTutorial" 
             class="form-control" 
             id="videoTutorial" 

@@ -1,4 +1,7 @@
 <app-header></app-header>
 <main class="main-container">
     <router-outlet></router-outlet>
+    @if(loadingService.getValue() === true){
+        <app-loading></app-loading>
+    }
 </main>

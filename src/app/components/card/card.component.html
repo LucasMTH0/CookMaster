@@ -1,9 +1,18 @@
 @if(recipe){
-    <div class="card-container" (click)="navigateToDetails()">
-        <img [src]="recipe.image ? recipe.image : 'assets/image/default_recipe_image.png'"  alt="Imagem da receita"/>
+    <div class="card-container">
+        <img 
+            (click)="navigateToDetails()"
+            [src]="recipe.image ? recipe.image : defaultImagePath"  
+            alt="Imagem da receita"
+        />
         <div class="card-info">
             <h1>{{recipe.name}}</h1>
             <i>{{recipe.category}}</i>
         </div>
+        <!-- <mat-icon
+            aria-hidden="false"
+            aria-label="Entrar"
+            fontIcon="favorite"
+        ></mat-icon> -->
     </div>
 }
