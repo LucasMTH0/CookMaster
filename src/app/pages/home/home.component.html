@@ -2,7 +2,7 @@
   @if(user){
     <app-welcome-search-bar [user]="user"></app-welcome-search-bar>
   }
-  <!-- <app-category-slider-filter></app-category-slider-filter> -->
+  <app-category-slider-filter></app-category-slider-filter>
   <div class="cards-list-container">
     @for(recipe of recipesList ?? []; track recipe.id){
       <app-card key="recipe.id" [recipe]="recipe"></app-card>

@@ -145,7 +145,7 @@ body {
   color: var(--saffron-950);
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: 1em;
+  font-size: 18px;
 }
 
 
@@ -178,18 +178,25 @@ label {
 
 .form-submit {
   width: 12.5rem;
-  background: var(--eucalyptus-400);
-  color: var(--gray-50);
-  font-weight: bold;
-  border: 1px solid transparent;
-  border-radius: 7px;
+
   padding: 17px 10px;
   margin-block: 10px;
+
+  background: var(--eucalyptus-400);
+  color: var(--gray-50);
+
+  border: 1px solid transparent;
+  border-radius: 7px;
+
+  font-weight: bold;
   font-size: 1.1875rem;
+  text-transform: uppercase;
+
   cursor: pointer;
+
   transition: 2s ease-in-out;
   &:disabled {
-    background: var(--thunderbird-950);
+    background: var(--saffron-700);
     cursor: not-allowed;
     color: var(--gray-400);
   }
@@ -204,6 +211,9 @@ label {
     align-items: center;
     justify-content: center;
     margin-block: 1rem;
+  }
+  .form-submit{
+    width: 100%;
   }
 }
 
