@@ -7,7 +7,6 @@ import { IndexedDBService } from './services/indexedDB/indexed-db.service';
 import { LoadingComponent } from './components/loading/loading.component';
 import { LoadingService } from './services/loading/loading.service';
 
-
 @Component({
   selector: 'app-root',
   imports: [

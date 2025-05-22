@@ -34,6 +34,7 @@ export class HomeComponent {
   category$ = this.categoryService.list();
   recipes$: any;
   recipesList: any;
+  recipesListCopy: any;
 
   constructor(){
     this.getRecipes()
@@ -62,6 +63,20 @@ export class HomeComponent {
     ) {
       await this.offlineDB.insertRecipe(recipes);
     }
+  }
+
+  getFilteredRecipes(){
+    if(this.categoryOptionFilterSelected.length > 0){
+      return this.recipesList.filter((recipe: any) => {
+        return recipe.category.toLowerCase().includes(this.categoryOptionFilterSelected.toLowerCase())
+      })
+    }
+    return this.recipesList;
+  }
+
+  handleFilterRecipesByCategory(category: string){
+    this.categoryOptionFilterSelected = category;
+    	console.log("categoria: ", category)
   }
 
   async getOfflineRecipes(){
