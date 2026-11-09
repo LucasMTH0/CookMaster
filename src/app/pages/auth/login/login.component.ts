@@ -17,6 +17,7 @@ export class LoginComponent {
   private userService = inject(UserService)
   private formBuilder = inject(FormBuilder)
   private localStorageService =inject(LocalStorageService)
+  protected showPassword: boolean = false;
 
   protected formLogin = this.formBuilder.group({
     email: new FormControl('', [
@@ -32,6 +33,10 @@ export class LoginComponent {
       this.localStorageService.setUser(user)
       this.router.navigateByUrl('/')
     })
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
 }

@@ -1,15 +1,20 @@
-<div class="container">
+<section class="container">
   @if(user){
     <app-welcome-search-bar [user]="user">
     </app-welcome-search-bar>
   }
-  <app-category-slider-filter
-    (categorySelected)="handleFilterRecipesByCategory($event)"
-  ></app-category-slider-filter>
+  @if(getFilteredRecipes()){
+    <app-category-slider-filter
+      (categorySelected)="handleFilterRecipesByCategory($event)"
+    ></app-category-slider-filter>
+  } @else {
+    <section  style="height: 100%; display: flex; justify-content: center; align-items: center;">
+      <h1>Nenhuma receita encontrada.</h1>
+    </section>
+  }
   <div class="cards-list-container">
     @for(recipe of getFilteredRecipes() ?? []; track recipe){
       <app-card key="recipe.id" [recipe]="recipe"></app-card>
     }
   </div>
-
-</div>
+</section>

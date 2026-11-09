@@ -14,9 +14,9 @@ import { LoadingService } from '../../services/loading/loading.service';
   selector: 'app-home',
   imports: [
     CommonModule,
-    MatIconModule, 
+    MatIconModule,
     CardComponent,
-    CategorySliderFilterComponent, 
+    CategorySliderFilterComponent,
     WelcomeSearchBarComponent
   ],
   templateUrl: './home.component.html',
@@ -42,23 +42,34 @@ export class HomeComponent {
 
   async getRecipes(){
     if(navigator.onLine) {
-      this.loadingService.open()
-      this.recipeService.list().subscribe(
-        async (recipes) => {
-          this.recipesList = recipes;
-          await this.saveOfflineRecipes(recipes);
-          this.loadingService.close()
-        }
-      )
+      try {
+        this.loadingService.open()
+        this.recipeService.list().subscribe(
+          async (recipes) => {
+            this.recipesList = recipes;
+            await this.saveOfflineRecipes(recipes);
+          },
+          (error) => {
+            console.log("Deu erro: ", error)
+            this.loadingService.close()
+          },
+          () => {
+            this.loadingService.close()
+          }
+        )
+      } catch( error ) {
+        console.log("error: ", error)
+        this.loadingService.close()
+      }
     } else {
-      this.recipesList = await this.getOfflineRecipes() 
+      this.recipesList = await this.getOfflineRecipes()
     }
   }
 
   async saveOfflineRecipes(recipes: any){
     const offlineRecipesList: any = await this.getOfflineRecipes()
     if(
-      offlineRecipesList.length == 0 || 
+      offlineRecipesList.length == 0 ||
       offlineRecipesList < recipes.length
     ) {
       await this.offlineDB.insertRecipe(recipes);

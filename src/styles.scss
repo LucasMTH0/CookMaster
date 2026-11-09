@@ -177,7 +177,7 @@ label {
 }
 
 .form-submit {
-  width: 12.5rem;
+  width: 100%;
 
   padding: 17px 10px;
   margin-block: 10px;
@@ -194,9 +194,9 @@ label {
 
   cursor: pointer;
 
-  transition: 2s ease-in-out;
+  transition: 0.5s ease-in-out;
   &:disabled {
-    background: var(--saffron-700);
+    background: var(--gray-300);
     cursor: not-allowed;
     color: var(--gray-400);
   }
@@ -212,9 +212,7 @@ label {
     justify-content: center;
     margin-block: 1rem;
   }
-  .form-submit{
-    width: 100%;
-  }
+
 }
 
 @keyframes neonPulse {
