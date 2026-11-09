@@ -21,19 +21,7 @@
                 class="form-control"
                 formControlName="password"
             />
-            <button
-                style="position: absolute; right: 3px; bottom: 14px; border: none; background:  transparent; cursor: pointer"
-                type="button"
-                id="togglePassword"
-                aria-label="Exibir senha"
-                (click)="togglePasswordVisibility()"
-            >
-                @if( showPassword ) {
-                    <img src="assets/icons/Eye.svg"/>
-                } @else {
-                    <img src="assets/icons/Eye-closed.svg"/>
-                }
-            </button>
+            <app-toggle-visibility-password-button (emitToggle)="togglePasswordVisibility()"></app-toggle-visibility-password-button>
         </div>
         <button class="form-submit" [disabled]="formLogin.invalid" >Entrar</button>
     </form>

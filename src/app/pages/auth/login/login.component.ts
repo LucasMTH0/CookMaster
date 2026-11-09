@@ -4,10 +4,11 @@ import { UserService } from '../../../services/user/user.service';
 import { LocalStorageService } from '../../../services/localStorage/local-storage.service';
 import { Router } from '@angular/router';
 import { UserSignal } from '../../../signals/user/user';
+import { ToggleVisibilityPasswordButtonComponent } from '../../../components/toggle-visibility-password-button/toggle-visibility-password-button.component';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ToggleVisibilityPasswordButtonComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

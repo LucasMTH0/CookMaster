@@ -1,4 +1,4 @@
-<mat-sidenav-container class="header-container">
+<nav class="header-container">
     <ul>
         <li>
             <a routerLink="/">
@@ -10,6 +10,7 @@
                 ></mat-icon>
             </a>
         </li>
+
         @if(userSignal.get() !== null){
             <li>
                 <a routerLink="/recipe/create">
@@ -65,4 +66,4 @@
             </li>
         }
     </ul>
-</mat-sidenav-container>
+</nav>
